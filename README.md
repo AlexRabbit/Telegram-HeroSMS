@@ -1,3 +1,6 @@
+If this helped you, consider starring the repo ⭐
+
+
 <div align="center">
 
 # 📱 HeroSMS Telegram Bot
@@ -68,11 +71,7 @@ flowchart LR
 | 🐍 **Python** | 3.10 or newer |
 | 🤖 **Telegram bot token** | From [@BotFather](https://t.me/BotFather) |
 | 🔑 **HeroSMS API key** | From [hero-sms.com](https://hero-sms.com) → profile / API |
-| 💵 **HeroSMS balance** | Top up before buying numbers |
-| 🖥 **Something always on** | VPS, home server, or PC for 24/7 (see below) |
-
-> **Note:** SMS uses `https://hero-sms.com/stubs/handler_api.php`.  
-> Email uses `https://hero-sms.com/api/v1` with header `Authorization: ApiKey YOUR_KEY`.
+ 
 
 ---
 
@@ -147,14 +146,7 @@ All settings can be set via **environment variables** or in `hero_sms_bot.py`:
 | `ALLOWED_USER_ID` | *(required)* | Only this Telegram user can use the bot |
 | `BALANCE_ALERT_LOW` | `2.0` | Warn when balance below this (USD) |
 | `POLL_INTERVAL_SEC` | `12` | Seconds between code checks (in code) |
-
-### 📁 Data files (auto-created)
-
-| Path | Purpose |
-|------|---------|
-| `hero_data/favs.json` | Your ⭐ favorites |
-| `hero_data/state.json` | Low-balance alert state |
-| `hero_data/.hero_bootstrapped` | Bootstrap marker (optional) |
+ 
 
 ---
 
@@ -203,18 +195,7 @@ Send **`/help`** in the bot for the live guide. Summary:
 python hero_sms_bot.py --test
 ```
 
-| Check | What it does |
-|-------|----------------|
-| Auth whitelist | Verifies `ALLOWED_USER_ID` logic |
-| Telegram `getMe` | Bot token valid |
-| Telegram send | Sends a test message to you |
-| HeroSMS balance | API key + SMS API |
-| Countries / active | API connectivity |
-| Email v1 | `GET /api/v1/emails` + domains |
-
-Fix any `FAILED` lines before running 24/7.
-
----
+ 
 
 ## 🌐 Deploy on a VPS (production)
 
@@ -299,24 +280,7 @@ Enable and start:
 sudo systemctl daemon-reload
 sudo systemctl enable herosms-bot
 sudo systemctl start herosms-bot
-```
-
-### 📊 Useful commands
-
-```bash
-sudo systemctl status herosms-bot      # Is it running?
-sudo journalctl -u herosms-bot -f      # Live logs
-sudo systemctl restart herosms-bot     # After config change
-sudo systemctl stop herosms-bot        # Stop
-```
-
-You should see in logs:
-
-```text
-HeroSMS balance: ...
-HeroSMS email API (v1) OK
-Bot running for user id ...
-```
+``` 
 
 ---
 
@@ -399,33 +363,7 @@ docker compose up -d --build
 docker compose logs -f
 ```
 
----
-
-## 🔐 Security checklist (GitHub & production)
-
-- [ ] **Never commit** `.env` or real tokens — only `.env.example` with empty values
-- [ ] **Rotate keys** if they were ever committed to git (BotFather + HeroSMS dashboard)
-- [ ] Add to **`.gitignore`**: `hero_data/`, `.env`, `*.log`, `__pycache__/`
-- [ ] If keys were ever leaked → rotate via **BotFather** and HeroSMS dashboard
-- [ ] `ALLOWED_USER_ID` locks the bot to **you only** — double-check the ID
-- [ ] Run the bot under a **dedicated Linux user**, not root
-- [ ] Firewall: bot only needs **outbound HTTPS** (no open ports)
-
----
-
-## 📂 Project structure
-
-```text
-.
-├── hero_sms_bot.py      # 🤖 Entire bot (single file)
-├── README.md            # 📖 You are here
-├── requirements.txt     # 📦 Auto-generated (usually empty = stdlib only)
-└── hero_data/           # 💾 Created at runtime (gitignore this)
-    ├── favs.json
-    └── state.json
-```
-
----
+---  
 
 ## 🔧 Troubleshooting
 
@@ -470,30 +408,14 @@ Your favorites in `hero_data/favs.json` are preserved across updates.
 
 ---
 
-## 🤝 Contributing
-
-Issues and PRs welcome. Please **do not** include real API keys in commits.
-
----
-
+ 
 ## ⚠️ Disclaimer
 
 This project is **not affiliated** with HeroSMS or Telegram. You are responsible for complying with HeroSMS [terms](https://hero-sms.com/rules), local laws, and platform rules when using virtual numbers. Use at your own risk.
 
----
-
-## 📄 License
-
-MIT License — see [LICENSE](LICENSE).
-
----
-
+--- 
 <div align="center">
 
-**Made with ❤️ for private HeroSMS workflows**
-
-⭐ Star the repo if it helped you · 🐛 Open an issue if something breaks
-
-[HeroSMS](https://hero-sms.com) · [API docs](https://hero-sms.com/api) · [BotFather](https://t.me/BotFather)
-
+ 
+⭐ Star the repo if it helped you · 🐛 Open an issue if something breaks 
 </div>
