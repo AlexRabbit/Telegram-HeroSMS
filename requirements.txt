@@ -1,0 +1,2 @@
+# HeroSMS Telegram Bot — auto-generated
+# Runtime uses Python stdlib only. Line below is optional extras (leave empty).
